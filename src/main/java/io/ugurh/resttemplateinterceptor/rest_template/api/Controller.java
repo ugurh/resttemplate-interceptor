@@ -1,6 +1,6 @@
-package io.ugurh.resttemplateinterceptor.api;
+package io.ugurh.resttemplateinterceptor.rest_template.api;
 
-import io.ugurh.resttemplateinterceptor.model.Resource;
+import io.ugurh.resttemplateinterceptor.rest_template.model.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.RequestEntity;

@@ -1,4 +1,4 @@
-package io.ugurh.resttemplateinterceptor.model;
+package io.ugurh.resttemplateinterceptor.rest_template.model;
 
 /**
  * @author harun ugur

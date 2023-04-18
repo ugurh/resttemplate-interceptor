@@ -1,4 +1,4 @@
-package io.ugurh.resttemplateinterceptor.config;
+package io.ugurh.resttemplateinterceptor.rest_template.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

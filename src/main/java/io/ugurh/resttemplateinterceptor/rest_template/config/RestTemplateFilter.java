@@ -1,4 +1,4 @@
-package io.ugurh.resttemplateinterceptor.config;
+package io.ugurh.resttemplateinterceptor.rest_template.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
