@@ -1,6 +1,5 @@
 package io.ugurh.resttemplateinterceptor.exceptions;
 
-import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -22,10 +21,12 @@ public class CustomExceptionHandler {
     @ResponseBody
     public ResponseEntity<List<String>> processUnmergeException(final MethodArgumentNotValidException ex) {
 
-        List<String> list = ex.getBindingResult().getAllErrors().stream()
-                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+        List<String> validationErrors = ex.getBindingResult()
+                .getAllErrors()
+                .stream()
+                .map((error -> error.getDefaultMessage() == null ? "" : error.getDefaultMessage()))
                 .toList();
 
-        return new ResponseEntity<>(list, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(validationErrors, HttpStatus.BAD_REQUEST);
     }
 }
