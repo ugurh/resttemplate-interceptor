@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.ugurh</groupId>
-    <artifactId>resttemplate-interceptor</artifactId>
+    <artifactId>sphub</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>resttemplate-interceptor</name>
-    <description>resttemplate-interceptor</description>
+    <name>sphub</name>
+    <description>spring tutorial hub</description>
     <properties>
         <java.version>17</java.version>
     </properties>

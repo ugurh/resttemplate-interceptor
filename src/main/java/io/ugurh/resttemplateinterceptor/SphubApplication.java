@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @created 13.04.2023 - 22:16
  */
 @SpringBootApplication
-public class ResttemplateInterceptorApplication {
+public class SphubApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ResttemplateInterceptorApplication.class, args);
+        SpringApplication.run(SphubApplication.class, args);
     }
 
 }
