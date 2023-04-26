@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationEvent;
  * @created 23.04.2023 - 21:19
  */
 public class UserRegistrationEvent extends ApplicationEvent {
-    private String email;
+    private final String email;
 
 
     public UserRegistrationEvent(Object source, String  email) {
