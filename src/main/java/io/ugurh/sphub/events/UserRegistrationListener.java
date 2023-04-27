@@ -1,9 +1,8 @@
 package io.ugurh.sphub.events;
 
-import org.springframework.context.ApplicationListener;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationListener;
 
 /**
  * @author harun ugur

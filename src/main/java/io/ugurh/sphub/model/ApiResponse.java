@@ -12,7 +12,7 @@ import java.util.Map;
  * @project resttemplate-interceptor
  * @created 26.04.2023 - 15:13
  */
-@JsonPropertyOrder({ "httpHeaders", "httpStatusCode", "message", "data", "otherParams" })
+@JsonPropertyOrder({"httpHeaders", "httpStatusCode", "message", "data", "otherParams"})
 public class ApiResponse<T> {
 
     private final HttpHeaders httpHeaders;
@@ -51,9 +51,9 @@ public class ApiResponse<T> {
 
     public static class ApiResponseBuilder<T> {
 
-        private HttpHeaders httpHeaders = new HttpHeaders();
         private final int httpStatusCode;
         private final String message;
+        private HttpHeaders httpHeaders = new HttpHeaders();
         private T data;
         private Map<String, Object> otherParams = Collections.emptyMap();
 

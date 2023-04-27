@@ -11,7 +11,7 @@ public class UserRegistrationEvent extends ApplicationEvent {
     private final String email;
 
 
-    public UserRegistrationEvent(Object source, String  email) {
+    public UserRegistrationEvent(Object source, String email) {
         super(source);
         this.email = email;
     }
