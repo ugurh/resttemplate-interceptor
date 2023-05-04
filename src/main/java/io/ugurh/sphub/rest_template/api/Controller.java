@@ -40,7 +40,6 @@ public class Controller {
                 .accept(MediaType.APPLICATION_JSON)
                 .build();
 
-
         ResponseEntity<String> response = restTemplate.exchange(request, String.class);
 
         return ResponseEntity.status(HttpStatus.OK).body(response.getBody());

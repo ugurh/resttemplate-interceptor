@@ -2,10 +2,6 @@ package io.ugurh.sphub.student.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -15,10 +11,6 @@ import java.io.Serializable;
  * @created 27.04.2023 - 22:43
  */
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Student implements Serializable {
 
     @Id
@@ -31,4 +23,36 @@ public class Student implements Serializable {
     private int age;
     @Column
     private String email;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
