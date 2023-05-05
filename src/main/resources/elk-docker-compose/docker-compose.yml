@@ -26,7 +26,7 @@ services:
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
-      - /logs/sample.log:/usr/share/logstash/data/sample.log # add your log file path to here
+      - ./infrastructure/elk-docker-compose/logs/spring-boot-logs.log:/usr/share/logstash/data/spring-boot-logs.log # add your log file path to here
       - ./logs:/usr/share/logstash/logs
     ports:
       - '5000:5000'
