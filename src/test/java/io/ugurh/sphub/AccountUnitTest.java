@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -37,9 +38,10 @@ public class AccountUnitTest {
 
         Account account = repository.save(newAccount);
 
-        assertThat(account).hasFieldOrPropertyWithValue("email", "ugur.harun@yandex.com");
-        assertThat(account).hasFieldOrPropertyWithValue("username", "ugur.harun");
-        assertThat(account).hasFieldOrPropertyWithValue("password", "password");
+        assertThat(account)
+                .hasFieldOrPropertyWithValue("email", "ugur.harun@yandex.com")
+                .hasFieldOrPropertyWithValue("username", "ugur.harun")
+                .hasFieldOrPropertyWithValue("password", "password");
     }
 
     @Test
@@ -116,8 +118,11 @@ public class AccountUnitTest {
 
         repository.save(account);
 
-        Account checkAccount = repository.findById(account.getUserId()).get();
+        Optional<Account> accountDB = repository.findById(account.getUserId());
 
+        assertThat(accountDB).isPresent();
+
+        Account checkAccount = accountDB.get();
         assertThat(checkAccount.getUsername()).isEqualTo(updateUser.getUsername());
         assertThat(checkAccount.getEmail()).isEqualTo(updateUser.getEmail());
         assertThat(checkAccount.getPassword()).isEqualTo(updateUser.getPassword());

@@ -1,5 +1,6 @@
 package io.ugurh.sphub.account;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,10 +34,23 @@ public class AccountController {
         return ResponseEntity.ok(accounts);
     }
 
-    @RequestMapping(value = "/add1", method = RequestMethod.POST, consumes = "application/json")
+    @PostMapping(value = "/add1", consumes = "application/json")
     public ResponseEntity<Boolean> add1(@RequestBody List<Account> accounts) {
         boolean result = accountService.addAccounts1(accounts);
 
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping(value = "/create", consumes = "application/json")
+    public ResponseEntity<Account> create(@RequestBody Account account) {
+        Account result = accountService.create(account);
+
+        return new ResponseEntity<>(result, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
+        accountService.delete(id);
+        return new ResponseEntity<>("success", HttpStatus.OK);
     }
 }

@@ -1,6 +1,7 @@
 package io.ugurh.sphub.account;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import org.hibernate.Session;
@@ -14,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -93,4 +95,15 @@ public class AccountService {
         return result == accounts.size();
     }
 
+    public Account create(Account account) {
+        return accountRepository.save(account);
+    }
+
+    public void delete(Integer id) {
+        Optional<Account> account = accountRepository.findById(id);
+        if (!account.isPresent()) {
+            throw new EntityNotFoundException("Account " + id + " does not exist");
+        }
+        accountRepository.delete(account.get());
+    }
 }
