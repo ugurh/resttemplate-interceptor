@@ -1,6 +1,6 @@
 package io.ugurh.sphub;
 
-import io.ugurh.sphub.account.files.FilesStorageService;
+import io.ugurh.sphub.files.FilesStorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

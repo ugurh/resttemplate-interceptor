@@ -21,11 +21,30 @@ public class Account {
     private String username;
     private String password;
     private String email;
+    private boolean isActive = true;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp createdOn;
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp lastLogin;
+
+    public Account() {
+    }
+
+    public Account(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
+
+    public Account(int userId, String username, String password, String email, Timestamp createdOn, Timestamp lastLogin) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.createdOn = createdOn;
+        this.lastLogin = lastLogin;
+    }
 
     public int getUserId() {
         return userId;
@@ -73,5 +92,13 @@ public class Account {
 
     public void setLastLogin(Timestamp lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

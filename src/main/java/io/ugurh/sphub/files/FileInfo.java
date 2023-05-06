@@ -1,4 +1,4 @@
-package io.ugurh.sphub.account.files;
+package io.ugurh.sphub.files;
 
 /**
  * @author harun ugur

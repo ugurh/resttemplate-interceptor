@@ -1,4 +1,4 @@
-package io.ugurh.sphub.account.files;
+package io.ugurh.sphub.files;
 
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
