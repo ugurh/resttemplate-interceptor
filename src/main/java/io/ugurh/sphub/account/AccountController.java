@@ -53,4 +53,10 @@ public class AccountController {
         accountService.delete(id);
         return new ResponseEntity<>("success", HttpStatus.OK);
     }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Account> findAccountById(@PathVariable Integer id) {
+        Account account = accountService.findAccountById(id);
+        return new ResponseEntity<>(account, HttpStatus.OK);
+    }
 }

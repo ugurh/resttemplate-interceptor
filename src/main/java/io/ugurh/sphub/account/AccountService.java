@@ -100,10 +100,17 @@ public class AccountService {
     }
 
     public void delete(Integer id) {
+        Account account = findAccountById(id);
+        accountRepository.delete(account);
+    }
+
+    public Account findAccountById(Integer id) {
         Optional<Account> account = accountRepository.findById(id);
-        if (!account.isPresent()) {
+
+        if (account.isEmpty()) {
             throw new EntityNotFoundException("Account " + id + " does not exist");
         }
-        accountRepository.delete(account.get());
+
+        return account.get();
     }
 }

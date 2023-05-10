@@ -9,10 +9,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * @author harun ugur
@@ -66,6 +68,15 @@ public class AccountControllerTests extends AbstractTest {
         assertEquals(201, status);
         String content = mvcResult.getResponse().getContentAsString();
         System.out.println(content);
+    }
+
+    @Test
+    public void findAccountById() throws Exception {
+        mvc.perform(get("/api/accounts/1"))
+                .andDo(print())
+                .andExpect(content().contentType(MEDIA_TYPE))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.id", is(1)));
     }
 
     @Test
